@@ -20,8 +20,8 @@ const Header = () => {
   ];
 
   return (
-    <header>
-      <div className="container px-7 py-4 border">
+    <header className="w-full border">
+      <div className="max-W-7xl px-7 py-4 border">
         {/* MAIN ROW */}
         <div className="flex justify-between items-center">
           {/* Logo */}
