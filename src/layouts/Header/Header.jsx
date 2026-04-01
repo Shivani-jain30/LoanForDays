@@ -3,6 +3,7 @@ import { useState } from "react";
 import React from "react";
 import Image from "next/image";
 import logo from "@/assets/images/loanfordays logo-01.png";
+import logo2 from "@/assets/images/loanfordays logo-02.png";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { ModeToggle } from "@/components/ModeToggle";
@@ -12,7 +13,7 @@ const Header = () => {
 
   const menuItems = [
     { label: "Home", href: "/" },
-    { label: "About Us", href: "/aboutus" },
+    { label: "About ", href: "/about-us" },
     { label: "Loan Repayment", href: "/LoanRepayment" },
     { label: "Blog", href: "/blog" },
     { label: "Contact Us", href: "/contactus" },
@@ -24,8 +25,10 @@ const Header = () => {
       <div className="max-W-7xl px-7 py-4 border">
         {/* MAIN ROW */}
         <div className="flex justify-between items-center">
-          {/* Logo */}
-          <Image src={logo} height={200} width={200} alt="logo" />
+          {/* Logo  dark mode*/}
+          <Image src={logo} height={300} width={300} alt="logo" className="hidden dark:block"/>
+          {/* logo light mode */}
+          <Image src={logo2} height={300} width={300} alt="logo" className="block dark:hidden" />
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex gap-7">
