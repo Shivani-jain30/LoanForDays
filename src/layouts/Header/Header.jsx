@@ -14,24 +14,37 @@ const Header = () => {
   const menuItems = [
     { label: "Home", href: "/" },
     { label: "About ", href: "/about-us" },
-    { label: "Loan Repayment", href: "/LoanRepayment" },
+    { label: "Loan Repayment", href: "/loan-repayment" },
     { label: "Blog", href: "/blog" },
-    { label: "Contact Us", href: "/contactus" },
-    { label: "Apply Now", href: "/applynow" },
+    { label: "Contact Us", href: "/contact-us" },
   ];
 
   return (
-    <header className="w-full border">
-      <div className="max-W-7xl px-7 py-4 border">
+    <header className="bg-background shadow-md py-2 sticky top-0 z-50">
+      <div className="container">
         {/* MAIN ROW */}
         <div className="flex justify-between items-center">
-          {/* Logo  dark mode*/}
-          <Image src={logo} height={300} width={300} alt="logo" className="hidden dark:block"/>
-          {/* logo light mode */}
-          <Image src={logo2} height={300} width={300} alt="logo" className="block dark:hidden" />
+          <Link href="/">
+            {/* Logo  dark mode*/}
+            <Image
+              src={logo}
+              height={300}
+              width={300}
+              alt="logo"
+              className="hidden dark:block"
+            />
+            {/* logo light mode */}
+            <Image
+              src={logo2}
+              height={300}
+              width={300}
+              alt="logo"
+              className="block dark:hidden"
+            />
+          </Link>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex gap-7">
+          <ul className="hidden lg:flex gap-7">
             {menuItems.map((item, i) => (
               <li key={i}>
                 <Link href={item.href}>{item.label}</Link>
@@ -42,6 +55,14 @@ const Header = () => {
           {/* RIGHT SIDE */}
           <div className="flex items-center gap-2">
             <ModeToggle />
+            <div className="hidden lg:flex gap-3">
+              <Link href="/login" className="border  px-5 py-1  rounded-full hover:bg-green-600 text-whitetransition">
+                Login
+              </Link>
+              <Link href="/apply" className="bg-green-500 text-white px-5 py-1 font-bold rounded-full  transition">
+                Apply Now
+              </Link>
+            </div>
 
             <button
               className="text-2xl lg:hidden"
@@ -87,6 +108,14 @@ const Header = () => {
               </Link>
             ))}
           </div>
+          {/* buttons */}
+          <Link href="/login" className="w-full text-center py-2 rounded-lg"> Login
+          </Link>
+
+          <Link
+            href="/apply">
+            <button className="w-full border py-2 rounded-lg bg-green-500">Apply Now</button>
+          </Link>
         </div>
       </div>
     </header>

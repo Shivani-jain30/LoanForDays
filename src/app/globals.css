@@ -5,8 +5,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --breakpoint-2xl: 100rem;
+  --color-primary-color: var(--primary-color);
+  --color-primary-dark: var(--primary-color-dark);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-bg-card: var(--bg-card);
   --font-themefont: var(--font-inter);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-inter);
@@ -51,6 +55,9 @@
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
+  --primary-color-dark: #1C9833;
+  --primary-color: #8BBE1F;
+  --bg-card: #f3f4f6;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -87,7 +94,8 @@
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
+  --card: oklch(21.455% 0.00156 16.419);
+  --bg-card: oklch(23.413% 0.00463 17.174);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
@@ -133,7 +141,9 @@
   body {
     @apply bg-background text-foreground  font-themefont;
   }
-
+.container{
+  @apply mx-auto px-4
+}
 /* GRAPH LINE */
 .graph-line {
   stroke-dasharray: 1200;
@@ -198,51 +208,93 @@
   -webkit-text-fill-color: transparent;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* GRADIENT BORDER */
+.gradient-border {
+  background: linear-gradient(90deg, #1C9833, #8BBE1F);
+  padding: 1.5px;
+  border-radius: 16px;
 }
+
+.gradient-border1 {
+  background: linear-gradient(80deg, #a8d6b0);
+  padding: 1.5px;
+border-radius: 16px;
+}
+/* Card Flip */
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Hidden Scrollbar */
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Loan Repayment Animation */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-bg {
+  background: linear-gradient(
+    -45deg,
+    #1C9833,
+    #8BBE1F,
+    #1C9833,
+    #8BBE1F
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

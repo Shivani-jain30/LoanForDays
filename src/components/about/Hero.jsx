@@ -6,7 +6,7 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <section>
-      <div className="container">
+      <div className="">
         <div className="relative w-full h-[380px] flex items-center justify-center overflow-hidden bg-black">
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-black via-[#061a0b] to-black opacity-90"></div>
@@ -42,8 +42,8 @@ const Hero = () => {
             </h1>
 
             <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
-              Empowering your financial journey with transparent, flexible, and
-              accessible lending solutions
+              We started LoanForDays because we saw how hard it was for everyday people to get a small loan quickly. Banks take weeks. Traditional lenders need mountains of paperwork. We thought — there has to be a better way. And we built it.
+              
             </p>
 
               <ul className="flex text-center  justify-center gap-3 items-center mt-3 text-sm text-gray-400 tracking-wider">
