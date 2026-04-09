@@ -1,10 +1,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+     --color-primary-color: #1C9833;
+   --color-secondary-color: #8BBE1F;
+   --breakpoint-2xl: 100rem;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-themefont: var(--font-inter);
@@ -82,9 +84,11 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   --primary-gradient: linear-gradient(90deg, #1C9833, #8BBE1F);
+  --card-gradient: linear-gradient(135deg,#ffffff,#ffffff);
 }
 
 .dark {
+   --card-gradient: linear-gradient(135deg,#18181b,#27272a);
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -125,6 +129,13 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color);
+}
 
 @layer base {
   * {
@@ -133,8 +144,49 @@
   body {
     @apply bg-background text-foreground  font-themefont;
   }
+  .container {
+    @apply mx-auto px-4
+  }
+p{
+  @apply text-gray-400
+}
 
-/* GRAPH LINE */
+}
+
+
+@layer utilities {
+
+ @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    
+}
+    50% {
+      transform: translateY(-15px);
+     
+}
+  }
+
+  /* Glow Animation */
+  @keyframes glow {
+    0%, 100% {
+      filter: brightness(0.9);
+      -webkit-filter: brightness(0.9);
+}
+    50% {
+      filter: brightness(1.1);
+      -webkit-filter: brightness(1.1);
+}
+  }
+ .animate-float-glow {
+    animation: float 4s ease-in-out infinite,
+               glow 3s ease-in-out infinite;
+  }
+  
+   .card-gradient {
+    background:  var(--card-gradient);
+  }
+  /* GRAPH LINE */
 .graph-line {
   stroke-dasharray: 1200;
   stroke-dashoffset: 1200;
@@ -195,54 +247,6 @@
 .text-gradient {
   background: linear-gradient(90deg, #8BBE1F, #ffffff);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  webkit-text-fill-color: transparent;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
+}   
